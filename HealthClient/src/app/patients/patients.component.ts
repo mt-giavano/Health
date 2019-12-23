@@ -10,6 +10,13 @@ import { IPatient } from './shared/interfaces';
 export class PatientsComponent implements OnInit {
     title : string;
     people : IPatient[];
+    
+    // isVisible = true;
+
+    // changeVisibility()
+    // {
+    //     this.isVisible = !this.isVisible;
+    // }
 
     constructor() {}
 

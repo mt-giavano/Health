@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { IPatient } from '../shared/interfaces';
 
 @Component({
@@ -11,10 +10,19 @@ import { IPatient } from '../shared/interfaces';
 export class PatientsListComponent implements OnInit {
     
     filteredPatients : IPatient[] = [];
+    // customersOrderTotal: number;
+    // currencyCode: string = 'USD';
 
     constructor() {}
 
     ngOnInit() {
        
     }
+
+    // calculateOrders() {
+    //     this.customersOrderTotal = 0;
+    //     this.filteredCustomers.forEach((cust: ICustomer) => {
+    //         this.customersOrderTotal += cust.orderTotal;
+    //     });
+    // }
 }
