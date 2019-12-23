@@ -25,6 +25,8 @@ export class PatientsComponent implements OnInit {
         this.people = [
             { id: 1, name: 'john Doe' },
             { id: 2, name: 'Jane Doe' },
+            { id: 3, name: 'gia vano' },
+
         ];
     }
 }

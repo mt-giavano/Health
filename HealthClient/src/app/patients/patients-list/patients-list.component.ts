@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IPatient } from '../shared/interfaces';
 
 @Component({
@@ -9,20 +9,46 @@ import { IPatient } from '../shared/interfaces';
 
 export class PatientsListComponent implements OnInit {
     
+    private _patients: IPatient[] = [];
+
+    @Input() get patients() : IPatient[]{
+        return this._patients;
+    }
+
+    set patients(value:IPatient[]) {
+        if (value){
+            this.filteredPatients = this._patients = value;
+        }
+    }
+
+
     filteredPatients : IPatient[] = [];
-    // customersOrderTotal: number;
-    // currencyCode: string = 'USD';
 
     constructor() {}
 
     ngOnInit() {
-       
+    //    this.filteredPatients = [
+    //     { id: 1, name: 'john Doe' },
+    //     { id: 2, name: 'Jane Doe' },
+    //     { id: 3, name: 'gia vano' },
+    // ];
+
     }
 
-    // calculateOrders() {
-    //     this.customersOrderTotal = 0;
-    //     this.filteredCustomers.forEach((cust: ICustomer) => {
-    //         this.customersOrderTotal += cust.orderTotal;
-    //     });
-    // }
+
+    filter(data: string) {
+        if (data) {
+            this.filteredPatients = this.patients.filter((patient: IPatient) => {
+                return patient.id.toString().indexOf(data.toLowerCase()) > -1 ||
+                    patient.name.toLowerCase().indexOf(data.toLowerCase()) > -1;
+            });
+        } else {
+            this.filteredPatients = this.patients;
+        }
+    }
+
+    sort(prop: string)
+    {
+        
+    }
 }
