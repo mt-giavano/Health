@@ -1,16 +1,16 @@
 
 export interface IPatient {
-    id: number;
+    patientId: number;
     name: string;
 }
 
 export interface IAilment {
-    patientid: number;
+    patientId: number;
     name : string;
 }
 
 export interface IMedication {
-    patientid: number;
+    patientId: number;
     name : string;
     doses : string;
 }

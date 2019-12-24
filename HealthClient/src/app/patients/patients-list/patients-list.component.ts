@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IPatient } from '../shared/interfaces';
+import { IPatient } from '../../shared/interfaces';
+import { SorterService } from '../../core/sorter.service';
 
 @Component({
     selector: 'app-patients-list',
@@ -24,7 +25,7 @@ export class PatientsListComponent implements OnInit {
 
     filteredPatients : IPatient[] = [];
 
-    constructor() {}
+    constructor(private sorterService : SorterService) {}
 
     ngOnInit() {
     //    this.filteredPatients = [
@@ -39,7 +40,7 @@ export class PatientsListComponent implements OnInit {
     filter(data: string) {
         if (data) {
             this.filteredPatients = this.patients.filter((patient: IPatient) => {
-                return patient.id.toString().indexOf(data.toLowerCase()) > -1 ||
+                return patient.patientId.toString().indexOf(data.toLowerCase()) > -1 ||
                     patient.name.toLowerCase().indexOf(data.toLowerCase()) > -1;
             });
         } else {
@@ -49,6 +50,6 @@ export class PatientsListComponent implements OnInit {
 
     sort(prop: string)
     {
-        
+        this.sorterService.sort(this.filteredPatients, prop);
     }
 }

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { CoreModule } from './core/core.module'
 import { PatientsModule } from './patients/patients.module';
-import { SharedModule } from './patients/shared/shared.module';
+import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -10,7 +11,7 @@ import { AppComponent } from './app.component';
     AppComponent,
   ],
   imports: [
-    BrowserModule, PatientsModule, SharedModule
+    BrowserModule, CoreModule, PatientsModule, SharedModule
   ],
   bootstrap: [ AppComponent ]
 })

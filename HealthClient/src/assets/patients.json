@@ -1,0 +1,18 @@
+[
+    {
+          "patientId": 1,
+          "name": "ted James"
+    },
+    {
+        "patientId": 2,
+        "name": "aa James"
+    },
+    {
+        "patientId": 3,
+        "name": "tteh James"
+    },
+    {
+        "patientId": 4,
+        "name": "ko James"
+    }
+]

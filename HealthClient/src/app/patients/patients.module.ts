@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { PatientsComponent }  from './patients.component';
 import { PatientsListComponent }  from './patients-list/patients-list.component';
 import { FilterTextboxComponent } from './patients-list/filter-textbox.component';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports:      [ CommonModule, SharedModule, FormsModule ],

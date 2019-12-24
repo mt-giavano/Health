@@ -4,7 +4,7 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th (click)="sort('id')">id</th>
+            <th (click)="sort('patientId')">id</th>
             <th (click)="sort('name')">name</th>
 
         </tr>
@@ -12,7 +12,7 @@
     <tr *ngFor="let patient of filteredPatients">
         <td>
             <a>
-            {{ patient.id}}
+            {{ patient.patientId}}
             </a>
         </td>
         <td>
