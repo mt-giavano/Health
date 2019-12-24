@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
 
-import { IPatient, IAilment, IMedication } from '../shared/interfaces';
+import { IPatient, IAilment } from '../shared/interfaces';
 
 @Injectable()
 export class DataService {
@@ -22,28 +22,51 @@ export class DataService {
             );
     }
 
-    // getPatient(id: number) : Observable<IPatient> {
+    getPatient(id: number) : Observable<IPatient> {
+      return this.http.get<IPatient[]>(this.baseUrl + 'patients')
+        .pipe(
+          map(patients => {
+            let patient = patients.filter((patient: IPatient) => patient.patientId === id);
+            return (patient && patient.length) ? patient[0] : null;
+          }),
+          catchError(this.handleError)
+        )
+    }
+
+    // getAilments(id: number) : Observable<IPatient[]> {
     //   return this.http.get<IPatient[]>(this.baseUrl + 'patients')
     //     .pipe(
-    //       map(patients => {
-    //         let patient = patients.filter((cust: IPatient) => cust.id === id);
-    //         return (patient && patient.length) ? patient[0] : null;
-    //       }),
-    //       catchError(this.handleError)
-    //     )
-    // }
-
-    // getAilment(id: number) : Observable<IAilment[]> {
-    //   return this.http.get<IAilment[]>(this.baseUrl + 'patients')
-    //     .pipe(
     //       map(ailments => {
-    //         let patientAilments = ailments.filter((ailment: IAilment) => ailment.patientid === id);
+    //         let patientAilments = ailments.filter((ailment: IPatient) => ailment.patientId === id);
     //         return patientAilments;
     //       }),
+          
     //       catchError(this.handleError)
     //     );
     // }
 
+    getAilments(id: number) : Observable<IPatient[]> {
+      return this.http.get<IPatient[]>(this.baseUrl + 'patients')
+        .pipe(
+          map(ailments => {
+            let patientAilments = ailments.filter((ailment: IPatient) => ailment.patientId === id);
+            return patientAilments;
+          }),
+          
+          catchError(this.handleError)
+        );
+    }
+
+    // getOrders(id: number) : Observable<IOrder[]> {
+    //   return this.http.get<IOrder[]>(this.baseUrl + 'orders.json')
+    //     .pipe(
+    //       map(orders => {
+    //         let custOrders = orders.filter((order: IOrder) => order.customerId === id);
+    //         return custOrders;
+    //       }),
+    //       catchError(this.handleError)
+    //     );
+    // }
 
 
     private handleError(error: any) {

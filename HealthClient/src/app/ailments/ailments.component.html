@@ -1,0 +1,29 @@
+
+<div *ngIf="patient">
+    <h1>Ailment for {{ patient.name | titlecase }}</h1>
+
+    <table class="table table-hover orders-table" *ngFor="let ailment of ailments">
+        <tr *ngFor="let ailment of ailment.ailments">
+            <td>{{ ailment.name }}</td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="!patient">
+   No patient found
+</div>  
+<br />
+
+<!-- <div *ngIf="customer">
+    <h1>Orders for {{ customer.name | capitalize }}</h1>
+
+    <table class="table table-hover orders-table" *ngFor="let order of orders">
+        <tr *ngFor="let orderItem of order.orderItems">
+            <td>{{ orderItem.productName }}</td>
+            <td>{{ orderItem.itemCost | currency:'USD':'symbol' }}</td>    
+        </tr>
+    </table>
+</div>
+<div *ngIf="!customer">
+   No customer found
+</div>  
+<br /> -->

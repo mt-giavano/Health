@@ -10,6 +10,7 @@ import { DataService } from '../core/data.service';
 })
 
 export class PatientsComponent implements OnInit {
+    
     title : string;
     // people : IPatient[];
     people : any[];
