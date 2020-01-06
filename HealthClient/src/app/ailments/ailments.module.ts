@@ -11,6 +11,7 @@ import { AilmentsComponent } from './ailments.component';
     imports: [ CommonModule, FormsModule, SharedModule, AilmentsRoutingModule ],
     declarations: [ AilmentsComponent ]
 })
+
 export class AilmentsModule { }
 
 // @NgModule({

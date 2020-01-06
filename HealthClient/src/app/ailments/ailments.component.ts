@@ -35,6 +35,7 @@ export class AilmentsComponent implements OnInit {
       this.patient = patient;
     });
   }
+  
   //   this.dataService.getCustomer(id).subscribe((customer: ICustomer) => {
   //     this.customer = customer;
   //   });
